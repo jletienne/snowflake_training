@@ -1,0 +1,34 @@
+
+Generally, what is the size of a micro-partition in compressed format?
+
+Uncompressed 50 to 500 MB
+16 MB after compression
+
+
+
+Please choose the correct statements about Micro-Partitions (Select 2)
+
+
+
+Multi-Cluster is not available in standard edition
+
+
+No extra fees for semi-Structured data
+
+
+don't focus on size
+experiment with different query types
+
+
+
+No fail-safe for temp and transient tables
+
+
+
+Server cache is dropped when server is dropped
+
+
+Time Travel
+    Restore tables
+    Query data
+    create clones

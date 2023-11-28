@@ -1,0 +1,66 @@
+egress charges moving data out of snowflake
+
+
+A VARIANT can hold a value of any other data type, including an ARRAY or an OBJECT. An ARRAY or OBJECT holds a value of type VARIANT.
+
+
+use : to read json
+
+
+Snowflake can import semi-structured data from JSON, Avro, ORC, Parquet, and XML formats and store it in Snowflake data types designed specifically to support semi-structured data.
+
+
+select object_column['thirteen'],
+       object_column:thirteen
+    from object_example;
+
+
+The LOGIN_HISTORY family of table functions can be used to query login attempts by Snowflake users along various dimensions:
+LOGIN_HISTORY returns login events within a specified time range.
+LOGIN_HISTORY_BY_USER returns login events of a specified user within a specified time range.
+
+
+This Account Usage view can be used to query the access history of Snowflake objects (e.g. table, view, column) within the last 365 days (1 year).
+
+
+snowflake object history
+
+orgadmin sharing
+
+A Directory table is not a separate database object; it stores a catalog of staged files in cloud storage. Roles with sufficient privileges can query a directory table to retrieve file URLs to access the staged files and other metadata.
+
+DROP STAGE [ IF EXISTS ] <name>
+
+By default, COPY INTO location statements separate table data into a set of output files to take advantage of parallel operations. The maximum size for each file is set using the MAX_FILE_SIZE copy option. The default value is 16777216 (16 MB) but can be increased to accommodate larger files. The maximum file size supported is 5 GB for Amazon S3, Google Cloud Storage, or Microsoft Azure stages.
+
+
+
+
+Semi-structured data is typically stored in the following Snowflake data types:
+
+ARRAY: similar to an array in other languages.
+
+OBJECT: similar to a JSON object, also called a “dictionary”, “hash”, or “map” in many languages. This contains key-value pairs.
+
+VARIANT: a data type that can hold a value of any other data type (including ARRAY and OBJECT). VARIANT is used to build and store hierarchical data.
+
+Snowflake provides native data types (ARRAY, OBJECT, and VARIANT) for storing semi-structured data.
+
+
+
+OBJECT_CONSTRUCT
+Returns an OBJECT constructed from the arguments.
+
+
+Specify the input data format and the Snowflake data type by calling an appropriate function to convert the data. For example, to convert JSON-formatted data to a VARIANT value, call PARSE_JSON, as shown below:
+
+
+
+SELECT * FROM DIRECTORY( @<stage_name> )
+
+
+TABLE_STORAGE_METRICS
+
+
+
+If the data is imported in JSON, Avro, ORC, or Parquet format, then Snowflake can build the hierarchy for you and store it in a VARIANT. You can also create a hierarchy manually.

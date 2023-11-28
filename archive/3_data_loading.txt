@@ -1,0 +1,176 @@
+
+
+
+Snowflake stores semistructed data as variant.
+
+
+Compression Methods for Snowflake
+    Gzip (default)
+    bzip2
+    deflate
+    raw_deflate
+
+    ---- needs manual
+    Brotli
+    ZStandard
+
+
+To load files whose metadata has expired, set the LOAD_UNCERTAIN_FILES copy option to true.
+
+
+
+BUILD_STAGE_FILE_URL generates a Snowflake-hosted file URL to a staged file using the stage name and relative file path as inputs
+
+
+
+To optimize the number of parallel operations for a load, we recommend aiming to produce data files roughly 100-250 MB (or larger) in size compressed.
+
+
+When you recreate a pipe, if you do CREATE OR REPLACE PIPE, that load history is reset to empty,
+so Snowflake doesn't know which files we've already loaded.
+
+
+The OUTER => TRUE argument with FLATTEN generates exactly one row for zero-row expansions (with NULL in the KEY, INDEX, and VALUE columns).
+
+
+Java UDFs and tabular Java UDFs can read and process unstructured data in staged files using either the SnowflakeFile class or the InputStream class in the UDF code.
+
+
+File URL is ideal for custom apps that require access to unstructured data files
+
+Scoped URL: (Temp)
+    Encoded URL that permits temporary access to a staged file without granting privileges to the stage.
+    The URL expires when the persisted query result period ends (i.e., the results cache expires), which is currently 24 hours.
+    Ideal for use in custom applications, providing unstructured data to other accounts via a share,
+     or for downloading and ad hoc analysis of unstructured data via Snowsight
+
+File URL: (Permament)
+    URL that identifies the database, schema, stage, and file path to a set of files.
+    A role that has sufficient privileges on the stage can access the files.
+    Ideal for custom applications that require access to unstructured data files.
+
+
+Pre-signed URL: GET_PRESIGNED_URL A
+    Simple HTTPS URL used to access a file via a web browser.
+    A file is temporarily accessible to users via this URL using a pre-signed access token.
+    The expiration time for the access token is configurable.
+    Ideal for business intelligence applications or reporting tools that need to display the unstructured file contents.
+
+
+Expiration
+    Scoped URL: Persisted query result period ends.
+    The expiration period of the File URL: It is permanent.
+    The expiration period of Pre-Signed URL: Length of time specified in the expiration_time argument.
+
+
+UDF does not support sql DDL / DML. That means you can select from a table, but you can't create or modify tables inside of a UDF.
+
+
+
+The VARIANT data type imposes a 16 MB size limit on individual rows.
+
+
+REST APIs only
+create security integration
+
+
+
+Scalar Function is like addition
+
+
+
+
+Unstructured data is information that does not fit into a predefined data model or schema. Typically text-heavy, such as form responses and social media conversations, unstructured data also encompasses images, video, and audio. Industry-specific file types such as VCF (genomics), KDF (semiconductors), or HDF5 (aeronautics) are included in this category.
+
+
+Should recommend setting the file format option STRIP_NULL_VALUES to TRUE for the COPY INTO <table> command when loading the JSON files.
+
+
+
+
+Sampling
+SYSTEM | BLOCK sampling is often faster than BERNOULLI | ROW sampling.
+Also, BERNOULLI | ROW method is good for Smaller Tables and SYSTEM | BLOCK method for Larger Tables.
+
+
+Snowpipe is designed to load small volume of data (i.e., micro-batches) and incrementally make them available for analysis.
+
+A stored procedure runs with either the caller’s rights or the owner’s rights. It cannot run with both at the same time.
+
+To unload data to a single output file (at the potential cost of decreased performance), specify the SINGLE = true copy option in your stateme
+
+
+
+
+This poverty platform charges for storage
+
+
+
+A Directory table is not a separate database object; it stores a catalog of staged files in cloud storage. Roles with sufficient privileges can query a directory table to retrieve file URLs to access the staged files and other metadata.
+
+
+cloud messaging notifications are clutch
+
+
+Load Size
+    XS: 8
+    S: 16
+    M: 32
+    L: 64
+    XL:128
+
+
+
+
+Table function is group by
+
+object_construct
+
+put command is for local files
+
+ STRIP_OUTER_ARRAY file format option for the COPY INTO <table> command to remove the outer array structure and load the records into separate table rows:
+
+
+
+i remember when I first saw that confidence vote thing when we were first doing pi planning. imagine sitting in hours of meetings to low confidence
+
+
+UDF only runs as the function owner.
+A stored procedure runs with either the caller’s rights or the owner’s rights. I
+
+
+;
+
+
+scoped URL
+via shared it's for the user specifically
+
+pre-Signed (token)
+bi apps
+
+file
+custom apps
+
+
+
+Get Absolute Path
+returns the absolute path of a staged file using the stage name and path of the file relative to its location in the stage as inputs.?
+
+
+
+Outstanding Questions
+The Snowflake Information Schema includes table functions you can query to retrieve information about your directory tables. Which table function can be used to query the history of data files registered in the metadata of specified objects and the credits billed for these operations
+
+
+Which of these functions helps generate the FILE URL to access the unstructured data file?
+
+
+
+Which is generally the slowest option for selecting staged data files to load from a stage?
+
+John is trying to load JSON data sets with a huge array containing multiple records. Considering the VARIANT data type imposed size of 16 MB, what do you recommend to John for optimally loading the data?
+
+
+question 86
+question 90
+;

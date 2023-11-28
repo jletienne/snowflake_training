@@ -1,0 +1,152 @@
+kafka doesn't need pre configured table
+
+
+data Sharing
+    data share
+    marketplace
+    data exchange
+
+
+execute queries of the same size
+
+
+results aren't contained in cloud storage layer
+don't put them in different vws
+
+Temporary Tables, External Tables, Stages, Temporary Stages, Streams, and Tasks do not get replicated.
+
+
+
+8 servers in large size cluster
+1 is xs
+2 is small
+4 is medium
+8 is large
+
+
+XS 8 files parallelly.
+S 16 files parallelly.
+M 32 files parallelly.
+L 64 files parallelly.
+XL 128 files parallelly.
+
+
+The search optimization service currently supports equality predicate and IN list predicate searches for the following data types: Fixed-point numbers (e.g. INTEGER, NUMERIC). DATE, TIME, and TIMESTAMP. VARCHAR. BINARY. Currently, the search optimization service does not support floating point data types, semi-structured data types, or other data types not listed above.
+
+[Important term for exam: EQUALITY for Search Optimization Service]
+
+
+SECURITYADMIN role can manage any object grant globally, as well as create, monitor, and manage users and roles.
+
+More specifically, this role:
+
+Is granted the MANAGE GRANTS security privilege to be able to modify any grant, including revoking it.
+
+Inherits the privileges of the USERADMIN role via the system role hierarchy (i.e. USERADMIN role is granted to SECURITYADMIN).
+
+
+Explanation
+A role inherits all the privileges of its underlying roles (those "lower" in the hierarchy).
+
+
+Retired Key is used for decryption only.
+
+Active Key is used for both encryption and decryption.
+
+Destroyed Key is no longer used.
+
+
+Explanation
+Generally, tables in the multi-terabyte (TB) range will experience the most benefit from clustering, mainly if DML is performed regularly/continually on these tables.
+
+
+The benefits of The Data Cloud are Access, Governance, and Action.
+
+The key insights that the explain plan gives us in its results output are information on partition pruning, join ordering, and join types.
+
+Network policies currently support only Internet Protocol version 4 (i.e. IPv4) addresses.
+
+
+Full Release: A full release may include any of the following: -
+
+New features
+Feature enhancements or updates
+
+    Fixes
+
+    Patch Release: A patch release includes fixes only.
+
+    Behavior Release: Every month, Snowflake deploys one behavior change release. Behavior change releases contain changes to existing behaviors that may impact customers.
+
+
+The standard retention period is 1 day (24 hours) and is automatically enabled for all Snowflake accounts.
+
+
+Please note, not all predicate expressions can be used to prune. Snowflake does not prune micro-partitions based on a predicate with a subquery, even if the subquery results in a constant.
+
+
+access, authorization, authentication, data protetion
+
+timestmap no time zone
+
+task historty
+    global monitor
+    accoutn admin
+    task ownership privilege
+
+network policy
+    account admin, security admin
+
+there's no schema stage broseph
+
+Fail-safe is not provided as a means for accessing historical data after the Time Travel retention period has ended.
+
+
+Left Navigation consists of Worksheets, Dashboards, Data, Marketplace, Activity, Admin, Help & Support.
+
+User Menu lets you Switch Roles, Profile including multi-factor authentication (MFA), Partner Connect, Documentation, Support and Sign Out.
+
+The account selector, located at the bottom of the left nav, lets you sign in to other Snowflake accounts.
+
+
+Snowflake has the following Cloud Partner Categories:
+
+    Data Integration
+    Business Intelligence (BI)
+    Machine Learning & Data Science
+    Security Governance & Observability
+    SQL Development & Management
+    Native Programmatic Interfaces
+
+
+A Directory table is not a separate database object; it stores a catalog of staged files in cloud storage
+
+
+The role that dropped the DBA_ROLE will own the database. It is an important question for the exam.
+
+
+
+File Staging Commands – PUT (to a stage), GET (from a stage), LIST, and REMOVE. These commands are specific for working with stages.
+
+Data Loading / Unloading DML – COPY INTO <table>,  COPY INTO <location>
+
+The ACOOUNTADMIN role is intended for performing initial setup tasks in the system and managing account-level objects and tasks on a day-to-day basis. It should not be used to create objects in your account unless you absolutely need these objects to have the highest level of secure access.
+
+In the case of micro-partitions are in a constant state Overlap depth = 1.
+
+SECURITYADMIN role can manage any object grant globally, as well as create, monitor, and manage users and roles.
+    More specifically, this role:
+    Is granted the MANAGE GRANTS security privilege to be able to modify any grant, including revoking it.
+    Inherits the privileges of the USERADMIN role via the system role hierarchy (i.e. USERADMIN role is granted to SECURITYADMIN).
+
+
+
+. Query Result Cache doesn't require Virtual Warehouse and is available for other users in the same role with SELECT permissions on all tables in the query.
+
+The warehouse performance can be evaluated by querying the Account Usage QUERY_HISTORY view.
+
+The results get stored in the SSD of Virtual Warehouse. So, if the Virtual Warehouse gets suspended, then results get lost.
+
+Snowflake keeps the Snowpipe's load history for 14 days.
+
+29, 36, 37, 58, 69, 73, 76, 89, 96

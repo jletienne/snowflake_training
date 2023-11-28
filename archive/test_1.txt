@@ -1,0 +1,154 @@
+
+
+
+clustering depth and info
+
+INSERT_ONLY = TRUE | FALSE
+Required for streams on external tables. Not supported by streams on other objects. Specifies whether this is an insert-only stream. Insert-only streams track row inserts only; they do not record delete operations that remove rows from an inserted set (i.e. no-ops). For example, in-between any two offsets, if File1 is removed from the cloud storage location referenced by the external table, and File2 is added, the stream returns records for the rows in File2 only. Unlike when tracking change data capture (CDC) data for standard tables, Snowflake cannot access the historical records for files in cloud storage.
+
+
+snowflake keys rotated every 30 days
+
+default public role
+
+masking is for enterprise and up
+
+information schema is the data dicitonary
+
+federated authorization is for everyone tbh
+
+73, 84
+
+
+strip_outer_array is the one
+
+
+
+The following vendors provide native Snowflake support for federated authentication and SSO:
+    Okta— hosted service
+    Microsoft ADFS(Active Directory Federation Services) — on-premises software (installed on Windows Server)
+
+In addition to the native Snowflake support provided by Okta and ADFS, Snowflake supports using most SAML 2.0-compliant vendors as an IdP, including:
+
+    Google G Suite
+    Microsoft Azure Active Directory
+    OneLogin
+    Ping Identity PingOne
+
+
+
+Snowflake Query history page allows you to view the details of all the queries executed in the last 7 days? (True/False)
+
+
+blocked first means blocked more important prioirty
+
+
+for this stuff set force to false
+
+
+
+Zero-copy cloning allows us to make a snapshot of any table, schema, or database without actually copying data. A clone is writable and is independent of its source (i.e., changes made to the source or clone are not reflected in the other object).
+
+
+kafka is one pipe for topic
+
+
+A task can execute any one of the following types of SQL code:
+
+Single SQL statement
+
+Call to a stored procedure
+
+Procedural logic using Snowflake Scripting.
+
+
+Search optimization is a table-level property and applies to all columns with supported data types. The search optimization service aims to significantly improve the performance of selective point lookup queries on tables. A point lookup query returns only one or a small number of distinct rows. A user can register one or more tables to the search optimization service.
+
+
+The cloud services layer is a collection of services that coordinate activities across Snowflake. These services tie together all of the different components of Snowflake in order to process user requests, from login to query dispatch.
+
+The cloud service layer manages
+    Authentication,
+    Infrastructure Management,
+    Metadata Management,
+    Query parsing and optimization
+    Access control services.
+
+
+
+    The SHOW PARAMETERS command determines whether a network policy is set on the account or for a specific user.
+
+    For Account level: SHOW PARAMETERS LIKE 'network_policy' IN ACCOUNT;
+
+    For User level : SHOW PARAMETERS LIKE 'network_policy' IN USER <username>;
+
+    Example - SHOW PARAMETERS LIKE 'network_policy' IN USER john;
+
+
+why would you think roles can be shared you
+
+
+dip timeout we good
+
+
+process data smaller, increase parallel quereis, use larger warehouse
+
+
+
+user managed good for scheduling multipe concurrent tasks. too few casns or run fatsts
+
+
+
+
+auto_refresh_registration_history
+
+
+clustering is good for maintenance and query performance
+
+
+Time Travel cannot be disabled for an account.
+
+
+
+
+The spilling can't always be avoided, especially for large batches of data, but it can be decreased by:
+
+Reviewing the query for query optimization especially if it is a new query
+Reducing the amount of data processed. For example, by trying to improve partition pruning, or projecting only the columns that are needed in the output.
+Decreasing the number of parallel queries running in the warehouse.
+Trying to split the processing into several steps (for example by replacing the CTEs with temporary tables).
+Using a larger warehouse - this effectively means more memory and more local disk space.
+
+
+User-managed Tasks
+    recommended when you can fully utilize a single warehouse by scheduling multiple concurrent tasks to take advantage of available compute resources.
+    Also, recommended when adherence to the schedule interval is less critical.
+
+Serverless Tasks
+    recommended when you cannot fully utilize a warehouse because too few tasks run concurrently
+    or they run to completion quickly (in less than 1 minute).
+    Also, recommended when adherence to the schedule interval is critical.
+
+
+Snowflake Query history page allows you to view the details of all the queries executed in the last 14 days.
+You can query the Query_History view in Snowflake's Account Usage schema for older queries.
+
+
+
+
+
+
+
+Question 16
+
+Which of these SQL functions helps returns the absolute path of a staged file using the stage name and path of the file relative to its location in the stage as inputs.?
+
+-GET_ABSOLUTE_PATH
+-GET_RELATIVE_PATH
+
+
+
+use cached reuslt False
+
+
+select to tables. usage to database

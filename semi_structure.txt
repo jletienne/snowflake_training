@@ -1,0 +1,40 @@
+SELECT src:salesperson.name
+    FROM car_sales
+    ORDER BY 1;
+
+--Alternatively, use bracket notation to traverse the path in an object: <column>['<level1_element>']['<level2_element>']
+--Enclose element names in single quotes. Values are retrieved as strings.
+
+SELECT src['salesperson']['name']
+FROM car_sales
+ORDER BY 1;
+
+
+
+--Retrieve a specific numbered instance of a child element in a repeating array by adding a numbered predicate
+--(starting from 0) to the array reference.
+
+
+SELECT src:customer[0].name, src:vehicle[0]
+FROM car_sales
+ORDER BY 1;
+
+
+--By default, when VARCHARs, DATEs, TIMEs, and TIMESTAMPs are retrieved from a VARIANT column,
+--the values are surrounded by double quotes. You can eliminate the double quotes by explicitly casting the values.
+
+SELECT src:dealership, src:dealership::VARCHAR
+FROM car_sales
+ORDER BY 2;
+
+
+--Using the FLATTEN Function to Parse Arrays
+--Parse an array using the FLATTEN function. FLATTEN is a table function that produces a lateral view of a VARIANT, OBJECT, or ARRAY column. The function returns a row for each object, and the LATERAL modifier joins the data with any information outside of the object.
+--Get the names and addresses of all customers. Cast the VARIANT output to string values:
+
+SELECT
+  value:name::string as "Customer Name",
+  value:address::string as "Address"
+  FROM
+    car_sales
+  , LATERAL FLATTEN(INPUT => SRC:customer);

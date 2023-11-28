@@ -1,0 +1,265 @@
+Snowflake Layers
+    Cloud Services
+    Query Processing
+    Database Storage
+
+Snowflake supports three types of views.
+    Standard View
+    Secure View
+    Materialized View
+
+Four Types of Tables
+    External
+    Transient
+    Temp
+    Permanent
+
+
+Snowflake connects external apps
+    Spark
+    Kafka
+    Python
+
+In the WebUI
+    Node
+    Spark
+    Go
+    JDBC
+
+
+3 to 4 Columns Preferred for a Cluster Key
+
+
+Shared Data
+    it's read only, you can't time-travel, cloning, or editing
+
+
+
+Security Admin
+    Warehouses
+    History
+    Account
+
+
+use warehouse
+
+To Administer Shares you need Import Shares Privilege
+
+
+Snowflake is for OLAP Online Analytical Processing
+
+Create table is by CloudServices and doesn't need a warehouse
+
+
+
+
+
+
+
+Everything is encyped at rest and in motion
+
+
+Older history is in account usage
+
+
+
+Release types
+    Full Release
+    Patch Release (weekly)
+    behiovr change
+
+
+
+UDFs
+    Java, Javascript, Python, SQL
+
+
+SPROC
+    Java, Javascript, Scala, Java Snowflake
+    sprocs aren't python or sql
+
+
+
+Snowflake follows the Staged release process for new releases.
+How many days it take to normally to complete all the stages of the staged release.
+ 2
+
+
+
+
+
+Snowflake Editions
+    Standard
+    Enterprise
+    Business Critical
+    Virtual Private Snowflake
+
+
+Child Objects Within Schemas
+    Sequences
+    File Formats
+    SPROCS
+    UDFs
+    Stages
+
+    not roles
+
+
+Snowflake stage, location used to store data
+
+
+Resource Monitoring
+    Monthly
+    Global Credit usage
+    Quota Thresholds
+
+
+
+Create Shares
+    Account Admin
+    Create Shares Global Privilige
+
+Benefit from Clustering
+    Multi-Terabyte
+
+
+
+
+
+
+Storage Costs
+    Clones,
+    Fail Safe
+    Data Tables
+    Stage
+
+
+Objects can be shared
+    Secure views
+    Tables
+    Secure UDFs
+    NOT Standard Views
+
+secure objects can be shared!
+
+Snowflake
+    Native SQL
+    Ground UP
+    Multi-Cluster
+    Hybrid Column
+
+
+Shares can use different databases
+
+direct shares single database and region
+
+
+Snowflake is for
+    SQL-Based Transformations
+    Dedicated Compute Resources
+    Semi-Structured Data
+
+Context Functions
+    region, client, sessions
+    NON Worksheet
+
+
+Securable Objects
+    SPROC, UDF
+    External Tables
+    Database, Schema
+
+
+Snowflake Data Sharing
+    Only Same Region
+    Secured Views are Required
+    Can't be Cloned By Consumer
+
+History is 14 Days
+;
+
+
+taking too long
+
+
+row based access controls
+
+
+
+Data stored in s
+
+
+types of cache
+
+
+Which is not the Security function of cloud services layer?
+
+Not Metadata Management Cloud Services layer
+Micro Partiion
+
+More Info:
+Metadata Management has following major functions:
+    - Stores metadata as data is loaded into the system
+    - Handles queries that can be processes completely from metadata
+    -Used for Time Travel and Cloning
+    -Every aspect of Snowflake architecture leverages metadata
+
+
+
+Optimization Activites of Cloud Services
+    Cost based
+    Automatic Join Order
+    Stats Gathering
+    Pruing using metadata
+
+Which actions are not supported with shared data?
+    all
+    Share is just for read, not for cloning or time-travel query or any edit.
+
+
+Which of the following are unique objects introduced by Snowflake?
+    STAGE and PIPE are unique Snowflake objects.
+
+
+
+
+
+
+Snowflake offers the early access of staged release to designated Standard Edition Customer. True or false?
+    Snowflake offers early access to designated Enterprise (or higher) accounts.
+
+    Early access is not required or recommended for all organizations with Enterprise Edition accounts; Snowflake’s rigorous release testing and monitoring during deployments is usually sufficient to prevent most issues. Early access is intended primarily for organizations that desire added certainty that their production accounts will not be affected by full releases.
+
+
+
+
+
+You have an Employee Table. You ran a query SELECT * FROM EMPLOYEE;. Then you deleted a record from EMPLOYEE table.
+You again ran query SELECT * FROM EMPLOYEE.
+    storage layer
+
+
+
+Can you have a database overlap across two Snowflake account?
+    No
+
+
+
+Each Snowflake account comes with two shared databases. One is a set of sample data and the other contains Account Usage information. Check all true statements about these shared databases.
+    Snowflake two shared databases
+        schema account usage
+        filled with secure views
+
+
+New or modified data in tables in a share are immediately not available to all consumers who have created a database from a share
+    False
+
+
+
+Snowflake calculates usage of data stored in the system for:
+    All but external storage
+
+Which of the following are valid context functions?
+    region client session
+
+;

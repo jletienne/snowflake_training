@@ -1,0 +1,8 @@
+
+
+import shares is needed or revoke all priviliges.
+
+metadata stores physical micco partition
+
+
+stages aren't for replication

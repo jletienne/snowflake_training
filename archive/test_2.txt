@@ -1,0 +1,154 @@
+aes 256 encryption
+
+
+only one network policy per user
+
+
+100-250mb compressed wtf?
+
+How much-uncompressed data does a micro-partition contain in Snowflake? 50 to 500
+
+
+
+share an include multiple databases
+
+
+ALTER TABLE EMPLOYEE SUSPEND RECLUSTER; please note, SUSPEND RECLUSTER is a clause here, not a command.
+
+
+Data Providers:  Share data with others
+
+Data Consumers: Accesses shared data with their own Snowflake account.
+
+Reader Accounts: Query data using compute from the data provider's account. Reader Accounts are what you can use to share data with somebody who does not already have a Snowflake account.
+
+Explanation
+This Account Usage view can be used to query Snowflake query history by various dimensions (time range, session, user, warehouse, etc.) within the last 365 days (1 year).
+
+Using Snowsight: Select Admin > Usage > Storage
+Using Classic Web Interface: Click on Account > Billing & Usage > Average Storage Used
+
+Tri-Secret Secure is the combination of a Snowflake-maintained key and a customer-managed key in the cloud provider platform that hosts your Snowflake account to create a composite master key to protect your Snowflake data.
+
+If you have privileges to view queries executed by another user, the Query Detail page displays the details for the query, but, for data privacy reasons, the page does not display the actual query result.
+
+
+Explanation
+Temporary tables, stages, tasks, streams, pipes, and external tables are not currently supported for replication.
+
+OPERATE - Enables changing the state of a warehouse (stop, start, suspend, resume). In addition, enables viewing current and past queries executed on a warehouse and aborting any executing queries.
+
+
+
+To view the current set of privileges granted on an object, you can execute the SHOW GRANTS command.
+
+A row access policy uses Conditional Expression Functions and Context Functions to determine which rows should be visible in a given context. Context Functions such as CURRENT_USER(), CURRENT_ROLE(), and CURRENT_ACCOUNT(), act as dynamic filters and are commonly used with secure views to limit row access in a table.
+
+Dynamic Data Masking is a Column-level Security feature that uses masking policies to selectively mask plain-text data in table and view columns at query time.
+
+External Tokenization enables accounts to tokenize data before loading it into Snowflake and detokenize the data at query runtime. Tokenization is the process of removing sensitive data by replacing it with an undecipherable token. External Tokenization makes use of masking policies with external functions.
+
+True, The search optimization service speeds only equality searches. However, this applies to all the columns of supported types in a table with search optimization enabled.
+
+ user cannot view the result set from a query that another user executed.
+
+
+ Adding a stream to a table appends three metadata columns: METADATA$ACTION, METADATA$ISUPDATE, METADATA$ROW_ID.
+
+
+ ACCOUNTADMIN role encapsulates the SYSADMIN and SECURITYADMIN system-defined roles.
+
+
+SHOW Commands, MIN, MAX (integers and dates), and COUNT SQL queries take advantage of the Metadata cache and do not require the virtual warehouse, but you still have some cloud service charges.
+
+ Virtual Warehouse Privileges:
+
+OPERATE - Enables changing the state of a warehouse (stop, start, suspend, resume). In addition, enables viewing current and past queries executed on a warehouse and aborting any executing queries.
+
+MODIFY - Enables altering any properties of a warehouse, including changing its size. Required assigning a warehouse to a resource monitor. Note that only the ACCOUNTADMIN role can assign warehouses to resource monitors.
+
+MONITOR - Enables viewing of current and past queries executed on a warehouse as well as usage statistics on that warehouse.
+
+USAGE - Enables using a virtual warehouse and, as a result, executing queries on the warehouse. If the warehouse is configured to auto-resume when a SQL statement (e.g. query) is submitted to it, the warehouse resumes automatically and executes the statement.
+
+OWNERSHIP - Grants full control over a warehouse. Only a single role can hold this privilege on a specific object at a time.
+
+
+
+The MUST_CHANGE_PASSWORD user property does not apply for federated authentication and should not be used. In particular, if you choose not to maintain passwords in Snowflake for users, ensure this property is set to FALSE for these users.
+
+
+UDF does not support SQL DDL / DML. That means you can select from a table, but you can't create or modify tables inside of a UDF.
+
+Snowflake keeps the batch load history for 64 days.
+
+
+
+The status of COPY INTO command can be checked from the Resource Monitors tab in the Snowflake user interface, as well as by querying the INFORMATION_SCHEMA.LOAD_HISTORY view.
+
+MODIFY - Enables altering any properties of a resource monitor, such as changing the monthly credit quota.
+
+
+
+MONITOR - Enables viewing a resource monitor.
+
+
+A scalar function is a function that returns one value per invocation
+
+
+Business Critical and Virtual Private Snowflake (VPS) editions provide HIPPA support.
+
+
+Network policies allow restricting access to your account based on user IP address. Effectively, a network policy enables you to create an IP allowed list, as well as an IP blocked list, if desired.
+
+
+
+Materialized views are advantageous when:
+
+
+
+Query results contain a small number of rows and/or columns relative to the base table (the table on which the view is defined).
+
+
+materialized views
+Query results contain results that require significant processing, including
+
+    Analysis of semi-structured data.
+
+    Aggregates that take a long time to calculate.
+
+    The query is on an external table (i.e., data sets stored in files in an external stage), which might perform slower than querying native database tables.
+
+
+
+    The view’s base table does not change frequently.
+
+
+
+    Explanation
+    The custom role gets mainly created for specific access to specific objects. As per best practice, grant ownership to SYSADMIN or a child role under SYSADMIN so that SYSADMIN can control access to the objects.
+
+account admin inherited to everyone
+
+
+As per best practice, grant ownership to SYSADMIN or a child role under SYSADMIN so that SYSADMIN can control access to the objects.
+
+True, Tasks require compute resources to execute SQL code. Either of the following compute models can be chosen for individual tasks: Snowflake-managed (i.e. serverless compute model), User-managed (i.e. virtual warehouse)
+
+
+sysadmin creates wareshouses and databases
+
+1,2, 15, 16, 18, 24, 32, 37, 40, 42, 43, 71, 73, 75, 81,87
+
+
+on the bs question answer is 4
+
+
+question 37, 46, 53, 61, 66, 77, 81, 82, 85, 86, 93, 98
+
+
+
+table stage and user stage can't be dropped
+
+
+Java UDFs and tabular Java UDFs can read and process unstructured data in staged files using either the SnowflakeFile class or the InputStream class in the UDF code.
